@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href={{url_for('static',filename='/css/font-awesome.min.css')}}>
+    <link rel="stylesheet" href={{url_for('static',filename='/css/animate.css')}}>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700'
+          rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" href={{url_for('static',filename='/css/bootstrap.min.css')}}>
+    <link rel="stylesheet" href={{url_for('static',filename='/css/main.css')}}>
+
+    <script src="static/js/modernizr-2.7.1.js"></script>
+
+</head>
+
+<body>
+
+
+<div class="mouse-icon hidden-xs">
+    <div class="scroll"></div>
+</div>
+
+<section id="be-the-first" class="pad-s">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+                <h2>Welcome to Flask Openshift template</h2>
+            </div>
+        </div>
+
+        <div class="row wow fadeInUp" data-wow-delay="1s">
+            <div class="col-sm-6">
+                <img src="static/img/sa.png">
+            </div>
+            <div class="col-sm-6">
+                <img src="static/img/oc.png">
+                <br/><br/><br/><br/><img src="static/img/flask.png" height="180" width="400">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="main-info" class="pad-s">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+                <hr class="line purple">
+                <h3>Liveness &amp; Readiness</h3>
+                <p>
+                    <button id="livebutton">Liveness check</button>
+                    &nbsp;<span id="liveres"></span>
+                </p>
+                <p>
+                    <button id="readybutton">Readiness check</button>
+                    &nbsp;<span id="readyres"></span>
+                </p>
+                <p>
+                    <button id="breakbutton">Liveness problem emul</button>
+                    &nbsp;<span id="breakres"></span>
+                </p>
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+                <hr class="line blue">
+                <h3>Log demo</h3>
+                <p>
+                    <button id="logmebutton">Logme</button>
+                    &nbsp;<span id="logmeres"></span>
+                </p>
+
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+                <hr class="line yellow">
+                <h3>Prometheus metrics</h3>
+                <p>
+                    <button id="meterbutton">Meter me!</button>
+                    &nbsp;<span id="meterres"></span>
+                </p>
+                <p>
+                    <button onclick="location.href='./metrics'" type="button">Prometheus metrics</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+                    window.jQuery || document.write('<script src="static/js/jquery-1.11.0.min.js"><\/script>')
+
+
+</script>
+<script src="static/js/wow.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/main.js"></script>
+
+<script src="static/js/buttons.js"></script>
+
+<script type=text/javascript> $(function() { $("#logmebutton").click(function (event) { $.getJSON('/logme', { },
+    function(data) { }); return false; }); });
+</script>
+
+<script type=text/javascript> $(function() { $("#meterbutton").click(function (event) { $.getJSON('/meter', { },
+    function(data) { }); return false; }); });
+</script>
+
+<script type=text/javascript> $(function() { $("#breakbutton").click(function (event) { $.getJSON('/break', { },
+    function(data) { }); return false; }); });
+</script>
+
+</body>
+</html>
